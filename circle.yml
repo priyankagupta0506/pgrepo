@@ -12,5 +12,6 @@ deployment:
   branch: master 
   commands: 
    - sudo service docker status 
-   - docker-compose up 
-   - docker ps –a 
+   - docker-compose build && docker images -a 
+   - docker ps –a
+   - ./deploy.sh
