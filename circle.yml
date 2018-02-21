@@ -3,8 +3,3 @@ machine:
   - pip install docker-compose
  services:
   - docker
- 
-test:
-  override:
-    - docker ps -a
-    - docker -v
