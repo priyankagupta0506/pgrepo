@@ -1,10 +1,10 @@
 machine:
  pre:
   - pip install docker-compose
-  services:
-    - docker
+ services:
+  - docker
  
 test:
-   override:
-      - docker ps -a
-      - docker -v
+  override:
+    - docker ps -a
+    - docker -v
