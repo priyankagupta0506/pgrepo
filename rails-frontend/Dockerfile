@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 # Install dependencies in a cache-friendly way
 COPY Gemfile Gemfile.lock /usr/src/app/
 RUN bundle install
-
+RUN apt-get update && apt-get install -y vim
 # Now copy the rest of the source code
 COPY . /usr/src/app
 RUN chmod +x /usr/src/app/docker-entrypoint.sh
