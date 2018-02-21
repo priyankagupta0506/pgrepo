@@ -1,10 +1,10 @@
 machine:
-   pre:
-      - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-#      - pip install --upgrade pip
-      - pip install docker-compose
-   services:
-      - docker
+ pre:
+   - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  - pip install --upgrade pip
+  - pip install docker-compose
+  services:
+    - docker
  
 test:
    override:
@@ -12,13 +12,13 @@ test:
       - docker -v
       - docker-compose version
      
-deployment:
-  prod:
-     branch: master
-     commands:
+#deployment:
+ # prod:
+ #    branch: master
+  #   commands:
 #     - sudo su 
 #     - sudo service docker start 
-        - sudo service docker status
-        - docker-compose up
-        - docker-compose build
-        - docker ps –a
+ #       - sudo service docker status
+ #       - docker-compose up
+ #       - docker-compose build
+  #      - docker ps –a
