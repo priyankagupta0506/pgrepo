@@ -13,6 +13,6 @@ deployment:
   commands: 
    - sudo service docker status 
    - docker-compose build && docker images -a 
-   - docker ps –a
+   - docker ps
    - aws ecr get-login
    - $(aws ecr get-login)
