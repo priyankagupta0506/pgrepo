@@ -9,7 +9,7 @@ test:
   - docker -v
 deployment:
  prod:
-  branch: master 
+  branch: 3 
   commands: 
    - sudo service docker status 
    - docker-compose up -d && docker images -a 
