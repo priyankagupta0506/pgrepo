@@ -15,4 +15,10 @@ deployment:
    - docker-compose up -d && docker images -a 
    - docker ps
    - aws configure set default.region us-east-1 && aws ecr get-login --no-include-email
-   - $(aws ecr get-login)
+   - $(aws ecr get-login) && aws ecr create-repository --repository-name iac_back
+   - $(aws ecr get-login) && aws ecr create-repository --repository-name iac_front
+   - docker tag gruntwork/sinatra-backend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
+   - docker tag gruntwork/rails-frontend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
+   - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
+   - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
+   - $(aws ecr get-login) && aws ecr describe-repositories
