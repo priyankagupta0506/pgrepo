@@ -4,8 +4,9 @@ ine:
  services:
   - docker
 test:
- override: 
-  - docker ps -a 
+ override:
+  - service docker status
+  - service docker start && docker ps -a 
   - docker -v
 deployment:
  prod:
