@@ -5,11 +5,11 @@ ine:
   - pip install docker-compose
  services:
   - docker
-test:
- override:
-  - service docker status
-  - service docker start && docker ps -a 
-  - docker -v
+#test:
+# override:
+#  - service docker status
+#  - service docker start && docker ps -a 
+#  - docker -v
 deployment:
  prod:
   branch: master
