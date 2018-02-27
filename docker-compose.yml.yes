@@ -1,5 +1,5 @@
 backend:
-  image: priyankagupta/priyanka_backend 
+  build: backend 
   volumes:
     - ./backend:/usr/src/app
   ports:

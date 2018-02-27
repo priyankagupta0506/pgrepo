@@ -28,7 +28,7 @@ variable "rails_frontend_image" {
 
 variable "rails_frontend_version" {
   description = "The version (i.e. tag) of the Docker container to deploy for the Rails frontend (e.g. latest, 12345)"
-  default = "v1"
+  default = "latest"
 }
 
 variable "sinatra_backend_image" {
@@ -38,7 +38,7 @@ variable "sinatra_backend_image" {
 
 variable "sinatra_backend_version" {
   description = "The version (i.e. tag) of the Docker container to deploy for the Sinatra backend (e.g. latest, 12345)"
-  default = "v1"
+  default = "latest"
 }
 
 variable "rails_frontend_port" {
