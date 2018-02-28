@@ -13,7 +13,7 @@ test:
 #  - service docker start && docker ps -a 
   - docker -v
   - pwd && ls -ltrh
-  - cd terraform-configurations && ./terraform init && ./terraform plan -out=terraform.plan
+  - cd terraform-configurations && ./terraform init && ./terraform plan
  # - cd terraform-configurations && ./terraform remote config -backend=S3 -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-1"
  # - cd terraform-configurations && ./terraform plan -out=terraform.plan
 deployment:
@@ -26,6 +26,7 @@ deployment:
    - aws configure set default.region us-east-1 && aws ecr get-login --no-include-email
    - $(aws ecr get-login)
    - cd terraform-configurations && ./terraform destroy terraform.plan
+   - cd terraform-configurations && ./terraform init && ./terraform plan -out=terraform.plan
    - cd terraform-configurations && ./terraform apply terraform.plan  
 #  - $(aws ecr get-login)
 #   - docker tag gruntwork/sinatra-backend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
