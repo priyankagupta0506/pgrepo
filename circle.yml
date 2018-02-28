@@ -13,8 +13,9 @@ test:
 #  - service docker start && docker ps -a 
   - docker -v
   - pwd && ls -ltrh
+  - cd terraform-configurations && ./terraform init && ./terraform plan
  # - cd terraform-configurations && ./terraform remote config -backend=S3 -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-1"
-  - cd terraform-configurations && ./terraform plan -out=terraform.plan
+ # - cd terraform-configurations && ./terraform plan -out=terraform.plan
 deployment:
  prod:
   branch: master
