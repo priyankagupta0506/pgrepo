@@ -9,7 +9,7 @@ machine:
   - docker
 test:
  override:
-  - service docker status
+#  - service docker status
 #  - service docker start && docker ps -a 
   - docker -v
   - pwd && ls -ltrh
