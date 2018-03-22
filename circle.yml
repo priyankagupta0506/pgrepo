@@ -26,6 +26,7 @@ deployment:
    - docker ps
    - aws configure set default.region us-east-1 && aws ecr get-login --no-include-email
    - $(aws ecr get-login)
+   - cd terraform-configurations && yes | ./terraform destroy -force
    - docker tag priyankagupta/priyanka_backend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
    - docker tag priyankagupta/priyanka_frontend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
    - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
