@@ -1,4 +1,4 @@
-ine:
+machine:
  pre:
   - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   - pip install --upgrade pip
@@ -9,7 +9,7 @@ ine:
   - docker
 test:
  override:
-#  - service docker status
+  - service docker status
 #  - service docker start && docker ps -a 
   - docker -v
   - pwd && ls -ltrh
