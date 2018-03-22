@@ -49,14 +49,14 @@ resource "aws_ecs_task_definition" "task" {
 EOF
 }
 
-# Convert the environment variables the user passed-in into the format expected for for an ECS Task:
-#
+# Convert the environment variables the user passed-in into the format expected for an ECS Task:
+
 # "environment": [
 #    {"name": "NAME", "value": "VALUE"},
 #    {"name": "NAME", "value": "VALUE"},
 #    ...
 # ]
-#
+
 data "template_file" "env_vars" {
   count = "${var.num_env_vars}"
   template = <<EOF

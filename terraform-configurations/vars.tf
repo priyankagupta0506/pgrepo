@@ -18,35 +18,35 @@ variable "region" {
 
 variable "key_pair_name" {
   description = "The name of the Key Pair that can be used to SSH to each EC2 instance in the ECS cluster. Leave blank to not include a Key Pair."
-  default = "poc"
+  default = "mysql"
 }
 
-variable "rails_frontend_image" {
-  description = "The name of the Docker image to deploy for the Rails frontend (e.g. gruntwork/rails-frontend)"
-  default = "gruntwork/rails-frontend"
+variable "demo_frontend_image" {
+  description = "The name of the Docker image to deploy for the frontend"
+  default = "priyankagupta/priyanka_frontend"
 }
 
-variable "rails_frontend_version" {
-  description = "The version (i.e. tag) of the Docker container to deploy for the Rails frontend (e.g. latest, 12345)"
+variable "demo_frontend_version" {
+  description = "The version (i.e. tag) of the Docker container to deploy for the frontend (e.g. latest, 12345)"
   default = "latest"
 }
 
-variable "sinatra_backend_image" {
-  description = "The name of the Docker image to deploy for the Sinatra backend (e.g. gruntwork/sinatra-backend)"
-  default = "gruntwork/sinatra-backend"
+variable "demo_backend_image" {
+  description = "The name of the Docker image to deploy for the  backend "
+  default = "priyankagupta/priyanka_backend"
 }
 
-variable "sinatra_backend_version" {
-  description = "The version (i.e. tag) of the Docker container to deploy for the Sinatra backend (e.g. latest, 12345)"
+variable "demo_backend_version" {
+  description = "The version (i.e. tag) of the Docker container to deploy for the backend (e.g. latest, 12345)"
   default = "latest"
 }
 
-variable "rails_frontend_port" {
-  description = "The port the Rails frontend Docker container listens on for HTTP requests (e.g. 3000)"
+variable "demo_frontend_port" {
+  description = "The port the frontend Docker container listens on for HTTP requests (e.g. 3000)"
   default = 3000
 }
 
-variable "sinatra_backend_port" {
-  description = "The port the Sinatra backend Docker container listens on for HTTP requests (e.g. 4567)"
+variable "demo_backend_port" {
+  description = "The port the backend Docker container listens on for HTTP requests (e.g. 4567)"
   default = 4567
 }

@@ -2,7 +2,7 @@
 # CREATE AN ECS CLUSTER
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "aws_ecs_cluster" "example_cluster" {
+resource "aws_ecs_cluster" "demo_cluster" {
   name = "${var.name}"
 }
 
@@ -25,9 +25,8 @@ resource "aws_autoscaling_group" "ecs_cluster_instances" {
   }
 }
 
-# Fetch the AWS ECS Optimized Linux AMI. Note that if you've never launched this AMI before, you have to accept the
-# terms and conditions on this webpage or the EC2 instances will fail to launch:
 # https://aws.amazon.com/marketplace/pp/B00U6QTYI2
+
 data "aws_ami" "ecs" {
   most_recent = true
   owners = ["amazon"]
@@ -39,6 +38,7 @@ data "aws_ami" "ecs" {
 
 # The launch configuration for each EC2 Instance that will run in the ECS
 # Cluster
+
 resource "aws_launch_configuration" "ecs_instance" {
   name_prefix = "${var.name}-"
   instance_type = "${var.instance_type}"
