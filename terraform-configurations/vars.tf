@@ -23,7 +23,7 @@ variable "key_pair_name" {
 
 variable "demo_frontend_image" {
   description = "The name of the Docker image to deploy for the frontend"
-  default = "priyankagupta/priyanka_frontend"
+  default = "785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front"
 }
 
 variable "demo_frontend_version" {
@@ -33,7 +33,7 @@ variable "demo_frontend_version" {
 
 variable "demo_backend_image" {
   description = "The name of the Docker image to deploy for the  backend "
-  default = "priyankagupta/priyanka_backend"
+  default = "785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back"
 }
 
 variable "demo_backend_version" {
