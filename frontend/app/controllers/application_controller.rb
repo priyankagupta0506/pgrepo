@@ -4,4 +4,7 @@ class ApplicationController < ActionController::Base
   def index
      @text = "This World"
   end
+  get "/health" do
+  "OK"
+  end
 end
