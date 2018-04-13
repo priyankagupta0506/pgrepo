@@ -104,7 +104,7 @@ module "demo_frontend_elb" {
   subnet_ids = ["${data.aws_subnet.default.*.id}"]
 
   instance_port = "${var.demo_frontend_port}"
-  health_check_path = "health"
+  health_check_path = "/"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
