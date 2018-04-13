@@ -1,4 +1,4 @@
-# rails-frontend
+#Frontend
 
 This is a simple [Ruby on Rails](http://rubyonrails.org/) app used as an example of a frontend microservice. The app
 contains just two endpoints:
