@@ -3,6 +3,5 @@ class ApplicationController < ActionController::Base
 
   def index
      @text = "hello"
-#    render text: "Pinkuu  frontend!!"
   end
 end
