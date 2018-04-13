@@ -1,4 +1,4 @@
-# sinatra-backend
+#Backend
 
 This is a simple [Sinatra app](http://www.sinatrarb.com/) used as a demonstration of a backend microservice. The app
 contains just two endpoints:
