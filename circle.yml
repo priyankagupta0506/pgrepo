@@ -25,6 +25,6 @@ deployment:
    - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
    - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
    - $(aws ecr get-login) && aws ecr describe-repositories
-   - cd terraform-configurations && ./terraform plan -out=terraform.plan && ./terraform apply terraform.plan
+   - cd terraform-configurations && ./terraform init && ./terraform plan -out=terraform.plan && ./terraform apply terraform.plan
    - sleep 10m
    - cd terraform-configurations && yes | ./terraform destroy -force
