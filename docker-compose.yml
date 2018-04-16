@@ -1,5 +1,5 @@
 backend:
-  image: priyankagupta/priyanka_backend 
+  image: priyankagupta/backend 
   volumes:
     - ./backend:/usr/src/app
   ports:
@@ -9,7 +9,7 @@ backend:
 
 
 frontend:
-  image: priyankagupta/priyanka_frontend
+  image: priyankagupta/frontend
   volumes:
     - ./frontend:/usr/src/app
   ports:
