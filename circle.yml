@@ -9,37 +9,22 @@ machine:
   - docker
 test:
  override:
-#  - service docker status
-#  - service docker start && docker ps -a 
   - docker -v
   - pwd && ls -ltrh
-  - cd terraform-configurations && ./terraform init && ./terraform plan
- # - cd terraform-configurations && ./terraform remote config -backend=S3 -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-1"
- # - cd terraform-configurations && ./terraform plan -out=terraform.plan
 deployment:
  prod:
   branch: master
   commands: 
    - sudo service docker status 
-#   - sudo service docker start 
    - docker-compose up -d && docker images -a 
-   - docker ps
+   - docker ps -a && docker images -a 
    - aws configure set default.region us-east-1 && aws ecr get-login --no-include-email
    - $(aws ecr get-login)
-   - cd terraform-configurations && yes | ./terraform destroy -force
    - docker tag priyankagupta/backend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
    - docker tag priyankagupta/frontend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
    - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
    - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
    - $(aws ecr get-login) && aws ecr describe-repositories
-   - cd terraform-configurations && yes | ./terraform destroy -force && sleep 20 && ./terraform plan -out=terraform.plan && ./terraform apply terraform.plan
-#   - cd terraform-configurations && ./terraform init && ./terraform plan -out=terraform.plan
-#   - cd terraform-configurations && ./terraform apply terraform.plan  
-#  - $(aws ecr get-login)
-#   - docker tag gruntwork/sinatra-backend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
-#   - docker tag gruntwork/rails-frontend:latest 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
-#   - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_back:latest
-#   - docker push 785295575848.dkr.ecr.us-east-1.amazonaws.com/iac_front:latest
-#   - $(aws ecr get-login) && aws ecr describe-repositories
-#&& aws ecr create-repository --repository-name iac_back
-#&& aws ecr create-repository --repository-name iac_front
+   - cd terraform-configurations && ./terraform plan -out=terraform.plan && ./terraform apply terraform.plan
+   - sleep 10m
+   - cd terraform-configurations && yes | ./terraform destroy -force
